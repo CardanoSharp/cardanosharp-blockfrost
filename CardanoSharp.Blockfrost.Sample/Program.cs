@@ -30,6 +30,5 @@ public class Worker : BackgroundService
         // Network Calls
         var network = await _networkClient.GetNetworkInformation();
 
-        Task.CompletedTask;
     }
 }

@@ -1,0 +1,7 @@
+{
+  "Blockfrost": {
+    "ApiKey": "PROJECT ID GOES HERE",
+    "BaseUrl": "BLOCKFROST ENDPOINT GOES HERE"
+  }
+  // Please create a file called "appsettings.json" with the context above and update the values
+}

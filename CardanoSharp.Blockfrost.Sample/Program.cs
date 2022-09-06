@@ -19,15 +19,18 @@ public class Worker : BackgroundService
 	private readonly INetworkClient _networkClient;
 	private readonly ITransactionsClient _transactionsClient;
 	private readonly IAssetsClient _assetsClient;
+	private readonly IScriptsClient _scriptsClient;
 
 	public Worker(
 		INetworkClient networkClient,
 		ITransactionsClient transactionsClient,
-		IAssetsClient assetsClient)
+		IAssetsClient assetsClient,
+		IScriptsClient scriptsClient)
 	{
 		_networkClient = networkClient;
 		_transactionsClient = transactionsClient;
 		_assetsClient = assetsClient;
+		_scriptsClient = scriptsClient;
 	}
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -42,7 +45,8 @@ public class Worker : BackgroundService
 		//var ftAsset = await _assetsClient.GetAsset("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
 		//var ftAssetAddrs = await _assetsClient.GetAssetAddresses("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
 		//var ftAssetTxs = await _assetsClient.GetAssetTransactions("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
-		var policyAssets = await _assetsClient.GetPolicyAssets("f65bde2d672f42dfcfae6ed93f360fcd60518dcb91ea96c1d7567b55");
+		//var policyAssets = await _assetsClient.GetPolicyAssets("f65bde2d672f42dfcfae6ed93f360fcd60518dcb91ea96c1d7567b55");
+		var scriptJson = await _scriptsClient.GetScriptJson("7ab6b893e3e9b1b8d6bb5f93ecf99694a6611d13f64678e2c5c7986c");
 	}
 
 	private void TestTxSubmit()

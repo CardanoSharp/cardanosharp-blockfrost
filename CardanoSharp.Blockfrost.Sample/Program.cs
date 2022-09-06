@@ -1,34 +1,56 @@
 ﻿using CardanoSharp.Blockfrost.Sdk;
 using CardanoSharp.Blockfrost.Sdk.Common;
-using Microsoft.Extensions.Hosting;
-using Refit;
 
 IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((hostContext, services) =>
-    {
-        var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
-        var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
-        var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
-        services.AddBlockfrost(authConfig);
+	.ConfigureServices((hostContext, services) =>
+	{
+		var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
+		var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
+		var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
+		services.AddBlockfrost(authConfig);
 
-        services.AddHostedService<Worker>();
-    })
-    .Build();
+		services.AddHostedService<Worker>();
+	})
+	.Build();
 await host.RunAsync();
 
 public class Worker : BackgroundService
 {
-    private readonly INetworkClient? _networkClient;
+	private readonly INetworkClient _networkClient;
+	private readonly ITransactionsClient _transactionsClient;
 
-    public Worker(INetworkClient? networkClient)
-    {
-        _networkClient = networkClient;
-    }
+	public Worker(INetworkClient networkClient, ITransactionsClient transactionsClient)
+	{
+		_networkClient = networkClient;
+		_transactionsClient = transactionsClient;
+	}
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        // Network Calls
-        var network = await _networkClient.GetNetworkInformation();
+	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+	{
+		// Network Calls
+		var network = await _networkClient.GetNetworkInformation();
+		var tx = await _transactionsClient.GetTransaction("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
+		TestTxSubmit();
+	}
 
-    }
+	private void TestTxSubmit()
+	{
+		//var txCbor = "84a400838258200dbfc4ecdea2b4df9ae55dbc3ec581c5080be50ea7487f207631c39505d8af8a018258201837efed9f36335bdbfdad59944ed9278c5e0e6a3ddc43b82cbea479e1c54203028258201837efed9f36335bdbfdad59944ed9278c5e0e6a3ddc43b82cbea479e1c54203030184825839008ac3e682a6745dcca62099c8022da724bfa02b8743beab318c9708c97d43e4690624bf0c576ba2a3d070202998740e77cb5d7ffa985b9465821a0017ad4aa2581c635da8872ab583e67993c69e67f50f12cc34ef8e1e1d93da9a9fe0cda144544d4f4e18c8581c698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9da14574445249500182583900e1deba87bcfca7bdc70217b3a8d5a126e73c938f3a1b288a71a2a54fe7236cb13ff18de175aafa3896acceb361ad7340ead54a694f99187d821a0017ad4aa1581ceb94702168e55e2fb79823efa3ab362866b9d2d97cb563b825e7b2dba14a474c4f4245303030313101825839008ac3e682a6745dcca62099c8022da724bfa02b8743beab318c9708c97d43e4690624bf0c576ba2a3d070202998740e77cb5d7ffa985b9465821a00656c1ba2581c635da8872ab583e67993c69e67f50f12cc34ef8e1e1d93da9a9fe0cda144544d4f4e1a00d9e1c7581c698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9da14574445249501a5526450082583900e1deba87bcfca7bdc70217b3a8d5a126e73c938f3a1b288a71a2a54fe7236cb13ff18de175aafa3896acceb361ad7340ead54a694f99187d821a003e63f2a2581c635da8872ab583e67993c69e67f50f12cc34ef8e1e1d93da9a9fe0cda144544d4f4e1a09c0ae2f581c698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9da14574445249501aa2696cd0021a00038e25031a040f32a9a10082825820b84056d4943b44d6804a65fbdf346cd47b3321c18497df5913a5bbe39fbc10b85840d565558868aad70d43c3aa1bfe18e69db45764a7454f1fd72ffa18e2f22060e575121b1393d48e3061146694cb3da77b2f6fdd7d72b13de7b1ad01c990272b0982582081fcd280a35e4d91c4044be1833f337b880b6f3dfacfe2d9bb07dd43c6a96d7a5840084083ca21a3f5a7a460220701a875fc2907215b1ee2d0b7eb5be9b18a16140144ab29fb724e76f2f28383d45f0fef7985a3581c758cd5297a414721fb305c0af5f6";
+		//byte[] txBytes = txCbor.HexToByteArray();
+
+		//try
+		//{
+		//	using (MemoryStream stream = new MemoryStream(txBytes))
+		//	{
+		//		var result = await _transactionsClient.SubmitTransaction(stream);
+		//	}
+		//}
+		//catch (Exception ex)
+		//{
+		//	ex.GetType();
+		//	throw;
+		//}
+
+		//produced - ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae
+	}
 }

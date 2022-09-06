@@ -36,8 +36,10 @@ public class Worker : BackgroundService
 		var network = await _networkClient.GetNetworkInformation();
 		var tx = await _transactionsClient.GetTransaction("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
 		TestTxSubmit();
-		var firstPage = await _assetsClient.GetAssets();
-		var secondHalfPage = await _assetsClient.GetAssets(50, 2);
+		//var firstPage = await _assetsClient.GetAssets();
+		//var secondHalfPage = await _assetsClient.GetAssets(50, 2);
+		var nftAsset = await _assetsClient.GetAsset("d865f9a1aff32c21d9471f328879bcdb070aa31e2189e0d997c675f254455354424f583030323139");
+		var ftAsset = await _assetsClient.GetAsset("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
 	}
 
 	private void TestTxSubmit()

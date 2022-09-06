@@ -4,16 +4,16 @@ namespace CardanoSharp.Blockfrost.Sdk.Contracts
 {
 	public class OffchainMetadata
 	{
-		[JsonPropertyName("name")] public string? name { get; set; }
+		[JsonPropertyName("name")] public string? Name { get; set; }
 
-		[JsonPropertyName("description")] public string? description { get; set; }
+		[JsonPropertyName("description")] public string? Description { get; set; }
 
-		[JsonPropertyName("ticker")] public string? ticker { get; set; }
+		[JsonPropertyName("ticker")] public string? Ticker { get; set; }
 
-		[JsonPropertyName("url")] public string? url { get; set; }
+		[JsonPropertyName("url")] public string? Url { get; set; }
 
-		[JsonPropertyName("logo")] public string? logo { get; set; }
+		[JsonPropertyName("logo")] public string? Logo { get; set; }
 
-		[JsonPropertyName("decimals")] public byte? decimals { get; set; }
+		[JsonPropertyName("decimals")] public byte? Decimals { get; set; }
 	}
 }

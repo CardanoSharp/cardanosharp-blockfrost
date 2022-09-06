@@ -50,7 +50,8 @@ public class Worker : BackgroundService
 		//var ftAssetTxs = await _assetsClient.GetAssetTransactions("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
 		//var policyAssets = await _assetsClient.GetPolicyAssets("f65bde2d672f42dfcfae6ed93f360fcd60518dcb91ea96c1d7567b55");
 		//var scriptJson = await _scriptsClient.GetScriptJson("7ab6b893e3e9b1b8d6bb5f93ecf99694a6611d13f64678e2c5c7986c");
-		var block = await _blocksClient.GetLatestBlock();
+		var latest = await _blocksClient.GetLatestBlock();
+		var block = await _blocksClient.GetBlock(latest!.Content!.PreviousBlock!);
 	}
 
 	private void TestTxSubmit()

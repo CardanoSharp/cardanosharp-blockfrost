@@ -10,4 +10,7 @@ public interface IAssetsClient
 
 	[Get("/assets/{asset}")]
 	Task<ApiResponse<AssetDetails>> GetAsset(string asset);
+
+	[Get("/assets/{asset}/addresses?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<AddressQuantity[]>> GetAssetAddresses(string asset, int count = 100, int page = 1, string order = "asc");
 }

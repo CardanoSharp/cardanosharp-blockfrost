@@ -1,9 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Blockfrost.Sdk.Contracts
 {
 	public class ScriptJson
 	{
-		[JsonPropertyName("json")] public object? Json { get; set; }
+		[JsonPropertyName("json")] public JsonElement? Json { get; set; }
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Blockfrost.Sdk.Contracts;
 
@@ -18,7 +19,7 @@ public class AssetDetails
 
 	[JsonPropertyName("mint_or_burn_count")] public uint MintOrBurnCount { get; set; }
 
-	[JsonPropertyName("onchain_metadata")] public object? OnchainMetadata { get; set; }
+	[JsonPropertyName("onchain_metadata")] public JsonElement? OnchainMetadata { get; set; }
 
 	[JsonPropertyName("metadata")] public OffchainMetadata? Metadata { get; set; }
 }

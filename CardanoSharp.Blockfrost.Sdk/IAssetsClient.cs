@@ -16,4 +16,7 @@ public interface IAssetsClient
 
 	[Get("/assets/{asset}/transactions?count={count}&page={page}&order={order}")]
 	Task<ApiResponse<AssetTransaction[]>> GetAssetTransactions(string asset, int count = 100, int page = 1, string order = "asc");
+
+	[Get("/assets/policy/{policy_id}?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<AssetQuantity[]>> GetPolicyAssets(string policy_id, int count = 100, int page = 1, string order = "asc");
 }

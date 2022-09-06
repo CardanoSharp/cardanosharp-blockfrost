@@ -6,5 +6,5 @@ namespace CardanoSharp.Blockfrost.Sdk;
 public interface IScriptsClient
 {
 	[Get("/scripts/{script_hash}/json")]
-	Task<ApiResponse<ScriptJson>> GetScriptJson(string script_hash);
+	Task<ApiResponse<ScriptJson>> GetScriptJsonAsync(string script_hash);
 }

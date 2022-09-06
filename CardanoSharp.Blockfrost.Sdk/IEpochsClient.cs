@@ -6,5 +6,5 @@ namespace CardanoSharp.Blockfrost.Sdk;
 public interface IEpochsClient
 {
 	[Get("/epochs/latest/parameters")]
-	Task<ApiResponse<EpochParameters>> GetLatestParamters();
+	Task<ApiResponse<EpochParameters>> GetLatestParamtersAsync();
 }

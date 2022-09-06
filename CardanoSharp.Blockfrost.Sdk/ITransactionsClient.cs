@@ -6,9 +6,9 @@ namespace CardanoSharp.Blockfrost.Sdk;
 public interface ITransactionsClient
 {
 	[Get("/txs/{hash}")]
-	Task<ApiResponse<Transaction>> GetTransaction(string hash);
+	Task<ApiResponse<Transaction>> GetTransactionAsync(string hash);
 
 	[Headers("Content-Type: application/cbor; charset=UTF-8")]
 	[Post("/tx/submit")]
-	Task<ApiResponse<string>> SubmitTransaction([Body] Stream content);
+	Task<ApiResponse<string>> SubmitTransactionAsync([Body] Stream content);
 }

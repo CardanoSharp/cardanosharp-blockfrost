@@ -6,5 +6,5 @@ namespace CardanoSharp.Blockfrost.Sdk;
 public interface INetworkClient
 {
 	[Get("/network")]
-	Task<ApiResponse<Network>> GetNetworkInformation();
+	Task<ApiResponse<Network>> GetNetworkInformationAsync();
 }

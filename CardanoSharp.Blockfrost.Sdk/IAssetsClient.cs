@@ -6,17 +6,17 @@ namespace CardanoSharp.Blockfrost.Sdk;
 public interface IAssetsClient
 {
 	[Get("/assets?count={count}&page={page}&order={order}")]
-	Task<ApiResponse<AssetQuantity[]>> GetAssets(int count = 100, int page = 1, string order = "asc");
+	Task<ApiResponse<AssetQuantity[]>> GetAssetsAsync(int count = 100, int page = 1, string order = "asc");
 
 	[Get("/assets/{asset}")]
-	Task<ApiResponse<AssetDetails>> GetAsset(string asset);
+	Task<ApiResponse<AssetDetails>> GetAssetAsync(string asset);
 
 	[Get("/assets/{asset}/addresses?count={count}&page={page}&order={order}")]
-	Task<ApiResponse<AddressQuantity[]>> GetAssetAddresses(string asset, int count = 100, int page = 1, string order = "asc");
+	Task<ApiResponse<AddressQuantity[]>> GetAssetAddressesAsync(string asset, int count = 100, int page = 1, string order = "asc");
 
 	[Get("/assets/{asset}/transactions?count={count}&page={page}&order={order}")]
-	Task<ApiResponse<AssetTransaction[]>> GetAssetTransactions(string asset, int count = 100, int page = 1, string order = "asc");
+	Task<ApiResponse<AssetTransaction[]>> GetAssetTransactionsAsync(string asset, int count = 100, int page = 1, string order = "asc");
 
 	[Get("/assets/policy/{policy_id}?count={count}&page={page}&order={order}")]
-	Task<ApiResponse<AssetQuantity[]>> GetPolicyAssets(string policy_id, int count = 100, int page = 1, string order = "asc");
+	Task<ApiResponse<AssetQuantity[]>> GetPolicyAssetsAsync(string policy_id, int count = 100, int page = 1, string order = "asc");
 }

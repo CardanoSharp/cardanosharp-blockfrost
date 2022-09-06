@@ -18,11 +18,16 @@ public class Worker : BackgroundService
 {
 	private readonly INetworkClient _networkClient;
 	private readonly ITransactionsClient _transactionsClient;
+	private readonly IAssetsClient _assetsClient;
 
-	public Worker(INetworkClient networkClient, ITransactionsClient transactionsClient)
+	public Worker(
+		INetworkClient networkClient,
+		ITransactionsClient transactionsClient,
+		IAssetsClient assetsClient)
 	{
 		_networkClient = networkClient;
 		_transactionsClient = transactionsClient;
+		_assetsClient = assetsClient;
 	}
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -31,6 +36,8 @@ public class Worker : BackgroundService
 		var network = await _networkClient.GetNetworkInformation();
 		var tx = await _transactionsClient.GetTransaction("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
 		TestTxSubmit();
+		var firstPage = await _assetsClient.GetAssets();
+		var secondHalfPage = await _assetsClient.GetAssets(50, 2);
 	}
 
 	private void TestTxSubmit()

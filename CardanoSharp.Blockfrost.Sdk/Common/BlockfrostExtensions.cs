@@ -20,5 +20,8 @@ public static class BlockfrostExtensions
 		services.AddRefitClient<ITransactionsClient>()
 			.ConfigureHttpClient(c => c.BaseAddress = uri)
 			.AddHttpMessageHandler<AuthHeaderHandler>();
+		services.AddRefitClient<IAssetsClient>()
+			.ConfigureHttpClient(c => c.BaseAddress = uri)
+			.AddHttpMessageHandler<AuthHeaderHandler>();
 	}
 }

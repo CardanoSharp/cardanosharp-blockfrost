@@ -26,5 +26,8 @@ public static class BlockfrostExtensions
 		services.AddRefitClient<IScriptsClient>()
 			.ConfigureHttpClient(c => c.BaseAddress = uri)
 			.AddHttpMessageHandler<AuthHeaderHandler>();
+		services.AddRefitClient<IBlocksClient>()
+			.ConfigureHttpClient(c => c.BaseAddress = uri)
+			.AddHttpMessageHandler<AuthHeaderHandler>();
 	}
 }

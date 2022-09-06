@@ -10,7 +10,7 @@ namespace CardanoSharp.Blockfrost.Sdk.Contracts
 
 		[JsonPropertyName("block_height")] public uint BlockHeight { get; set; }
 
-		[JsonPropertyName("block_time")] public uint BlockTime { get; set; }
+		[JsonPropertyName("block_time")] public ulong BlockTime { get; set; }
 
 		[JsonPropertyName("slot")] public uint Slot { get; set; }
 
@@ -42,7 +42,7 @@ namespace CardanoSharp.Blockfrost.Sdk.Contracts
 
 		[JsonPropertyName("pool_retire_count")] public ushort PoolRetireCount { get; set; }
 
-		[JsonPropertyName("asset_mint_or_burn_count")] public ushort AssetMintOrBurnCount { get; set; }
+		[JsonPropertyName("asset_mint_or_burn_count")] public uint AssetMintOrBurnCount { get; set; }
 
 		[JsonPropertyName("redeemer_count")] public ushort RedeemerCount { get; set; }
 

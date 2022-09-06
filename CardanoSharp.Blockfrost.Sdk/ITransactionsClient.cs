@@ -10,5 +10,5 @@ public interface ITransactionsClient
 
 	[Headers("Content-Type: application/cbor; charset=UTF-8")]
 	[Post("/tx/submit")]
-	Task<ApiResponse<string>> SubmitTransactionAsync([Body] Stream content);
+	Task<ApiResponse<string>> PostSubmitTransactionAsync([Body] Stream content);
 }

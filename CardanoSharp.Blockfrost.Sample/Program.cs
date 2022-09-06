@@ -72,7 +72,7 @@ public class Worker : BackgroundService
 		{
 			using (MemoryStream stream = new MemoryStream(txBytes))
 			{
-				var result = await _transactionsClient.SubmitTransactionAsync(stream);
+				var result = await _transactionsClient.PostSubmitTransactionAsync(stream);
 			}
 		}
 		catch (Exception ex)

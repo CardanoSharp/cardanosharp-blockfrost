@@ -22,6 +22,7 @@ public class Worker : BackgroundService
 	private readonly IScriptsClient _scriptsClient;
 	private readonly IBlocksClient _blocksClient;
 	private readonly IEpochsClient _epochsClient;
+	private readonly IAddressesClient _addressesClient;
 
 	public Worker(
 		INetworkClient networkClient,
@@ -29,7 +30,8 @@ public class Worker : BackgroundService
 		IAssetsClient assetsClient,
 		IScriptsClient scriptsClient,
 		IBlocksClient blocksClient,
-		IEpochsClient epochsClient)
+		IEpochsClient epochsClient,
+		IAddressesClient addressesClient)
 	{
 		_networkClient = networkClient;
 		_transactionsClient = transactionsClient;
@@ -37,13 +39,14 @@ public class Worker : BackgroundService
 		_scriptsClient = scriptsClient;
 		_blocksClient = blocksClient;
 		_epochsClient = epochsClient;
+		_addressesClient = addressesClient;
 	}
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
 		// Network Calls
-		var network = await _networkClient.GetNetworkInformation();
-		var tx = await _transactionsClient.GetTransaction("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
+		//var network = await _networkClient.GetNetworkInformation();
+		//var tx = await _transactionsClient.GetTransaction("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
 		TestTxSubmit();
 		//var firstPage = await _assetsClient.GetAssets();
 		//var secondHalfPage = await _assetsClient.GetAssets(50, 2);
@@ -55,7 +58,8 @@ public class Worker : BackgroundService
 		//var scriptJson = await _scriptsClient.GetScriptJson("7ab6b893e3e9b1b8d6bb5f93ecf99694a6611d13f64678e2c5c7986c");
 		//var latest = await _blocksClient.GetLatestBlock();
 		//var block = await _blocksClient.GetBlock(latest!.Content!.PreviousBlock!);
-		var epochParams = await _epochsClient.GetLatestParamters();
+		//var epochParams = await _epochsClient.GetLatestParamters();
+		var addressUtxos = await _addressesClient.GetAddressUtxos("addr_test1qqan8zfmuzng0yeudewjl385jhu3mt0vwehxgd2cj2lgdsgnqrfzgpfvgptdy2cweq3tl8rkk0d6py2ssy5l52cqpvyq74cdwx");
 	}
 
 	private void TestTxSubmit()

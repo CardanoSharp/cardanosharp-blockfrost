@@ -6,11 +6,11 @@ public class Block
 {
 	[JsonPropertyName("time")] public ulong Time { get; set; }
 
-	[JsonPropertyName("height")] public uint? Height { get; set; }
+	[JsonPropertyName("height")] public ulong? Height { get; set; }
 
 	[JsonPropertyName("hash")] public string Hash { get; set; }
 
-	[JsonPropertyName("slot")] public uint? Slot { get; set; }
+	[JsonPropertyName("slot")] public ulong? Slot { get; set; }
 
 	[JsonPropertyName("epoch")] public uint? Epoch { get; set; }
 

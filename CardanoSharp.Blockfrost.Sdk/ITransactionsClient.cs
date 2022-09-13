@@ -11,4 +11,7 @@ public interface ITransactionsClient
 	[Headers("Content-Type: application/cbor; charset=UTF-8")]
 	[Post("/tx/submit")]
 	Task<ApiResponse<string>> PostSubmitTransactionAsync([Body] Stream content);
+
+    [Get("/txs/{hash}/utxos")]
+    Task<ApiResponse<TransactionUtxo>> GetUtxosAsync(string hash);
 }

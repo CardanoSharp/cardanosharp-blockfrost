@@ -45,7 +45,7 @@ public class Worker : BackgroundService
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-		// Network Calls
+		// Test Calls
 		var network = await _networkClient.GetNetworkInformationAsync();
 		var tx = await _transactionsClient.GetTransactionAsync("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
 		await TestTxSubmitAsync();
@@ -62,6 +62,8 @@ public class Worker : BackgroundService
 		var block = await _blocksClient.GetBlockAsync(latest!.Content!.PreviousBlock!);
 		var epochParams = await _epochsClient.GetLatestParamtersAsync();
 		var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqan8zfmuzng0yeudewjl385jhu3mt0vwehxgd2cj2lgdsgnqrfzgpfvgptdy2cweq3tl8rkk0d6py2ssy5l52cqpvyq74cdwx");
+		var latestEpoch = await _epochsClient.GetLatestAsync();
+		var specificEpoch = await _epochsClient.GetAsync(200);
 	}
 
 	private async Task TestTxSubmitAsync()

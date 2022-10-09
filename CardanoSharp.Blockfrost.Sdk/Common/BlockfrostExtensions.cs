@@ -32,8 +32,11 @@ public static class BlockfrostExtensions
 		services.AddRefitClient<IEpochsClient>()
 			.ConfigureHttpClient(c => c.BaseAddress = uri)
 			.AddHttpMessageHandler<AuthHeaderHandler>();
-		services.AddRefitClient<IAddressesClient>()
-			.ConfigureHttpClient(c => c.BaseAddress = uri)
-			.AddHttpMessageHandler<AuthHeaderHandler>();
+        services.AddRefitClient<IAddressesClient>()
+            .ConfigureHttpClient(c => c.BaseAddress = uri)
+            .AddHttpMessageHandler<AuthHeaderHandler>();
+        services.AddRefitClient<IPoolsClient>()
+            .ConfigureHttpClient(c => c.BaseAddress = uri)
+            .AddHttpMessageHandler<AuthHeaderHandler>();
 	}
 }

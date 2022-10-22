@@ -10,7 +10,7 @@ public static class BlockfrostExtensions
 		var uri = new Uri(authHeaderConfiguration.BaseUrl);
 
 		// set the auth delegate handler
-		services.AddSingleton(authHeaderConfiguration);
+        services.AddSingleton(authHeaderConfiguration);
 		services.AddTransient<AuthHeaderHandler>();
 
 		// add all the clients

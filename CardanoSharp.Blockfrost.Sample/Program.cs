@@ -69,6 +69,9 @@ public class Worker : BackgroundService
 		//var specificEpoch = await _epochsClient.GetAsync(200);
 		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
 		//var stakeDistributionByPool = await _epochsClient.GetStakeDistributionByPoolAsync(200, "pool1qqfnw2fwajdnam7xsqhhrje5cgd8jcltzfrx655rd23eqlxjfef");
+        //var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
+        //var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
+        //var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
 	}
 
 

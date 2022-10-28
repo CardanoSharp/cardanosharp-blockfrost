@@ -48,29 +48,28 @@ public class Worker : BackgroundService
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-        // Test Calls
-        var network = await _networkClient.GetNetworkInformationAsync();
-        var tx = await _transactionsClient.GetTransactionAsync("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
-        await TestTxSubmitAsync();
-        var firstPage = await _assetsClient.GetAssetsAsync();
-        var secondHalfPage = await _assetsClient.GetAssetsAsync(50, 2);
-        var nftAsset = await _assetsClient.GetAssetAsync("d865f9a1aff32c21d9471f328879bcdb070aa31e2189e0d997c675f254455354424f583030323139");
-        var ftAsset = await _assetsClient.GetAssetAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
-        var ftAssetAddrs = await _assetsClient.GetAssetAddressesAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
-        var ftAssetTxs = await _assetsClient.GetAssetTransactionsAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
-        var policyAssets = await _assetsClient.GetPolicyAssetsAsync("f65bde2d672f42dfcfae6ed93f360fcd60518dcb91ea96c1d7567b55");
-        var scriptJson = await _scriptsClient.GetScriptJsonAsync("7ab6b893e3e9b1b8d6bb5f93ecf99694a6611d13f64678e2c5c7986c");
-        var scriptDetails = await _scriptsClient.GetScriptAsync("33b6150f4f5df62bfc638f206f3a37254d4a82f15f0c6635a20eb83f");
-        var latest = await _blocksClient.GetLatestBlockAsync();
-        var block = await _blocksClient.GetBlockAsync(latest!.Content!.PreviousBlock!);
-        var epochParams = await _epochsClient.GetLatestParamtersAsync();
-        var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqan8zfmuzng0yeudewjl385jhu3mt0vwehxgd2cj2lgdsgnqrfzgpfvgptdy2cweq3tl8rkk0d6py2ssy5l52cqpvyq74cdwx");
-        var latestEpoch = await _epochsClient.GetLatestAsync();
-        var specificEpoch = await _epochsClient.GetAsync(200);
-        var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
-        var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
-        var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
-    }
+		// Test Calls
+		//var network = await _networkClient.GetNetworkInformationAsync();
+		//var tx = await _transactionsClient.GetTransactionAsync("ad768ec1f3326aaf0b7a2b8284b268258bfbb8b60ff54321956bb2c4cf08eeae");
+		//await TestTxSubmitAsync();
+		//var firstPage = await _assetsClient.GetAssetsAsync();
+		//var secondHalfPage = await _assetsClient.GetAssetsAsync(50, 2);
+		//var nftAsset = await _assetsClient.GetAssetAsync("d865f9a1aff32c21d9471f328879bcdb070aa31e2189e0d997c675f254455354424f583030323139");
+		//var ftAsset = await _assetsClient.GetAssetAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		//var ftAssetAddrs = await _assetsClient.GetAssetAddressesAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		//var ftAssetTxs = await _assetsClient.GetAssetTransactionsAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		//var policyAssets = await _assetsClient.GetPolicyAssetsAsync("f65bde2d672f42dfcfae6ed93f360fcd60518dcb91ea96c1d7567b55");
+		//var scriptJson = await _scriptsClient.GetScriptJsonAsync("7ab6b893e3e9b1b8d6bb5f93ecf99694a6611d13f64678e2c5c7986c");
+		//var scriptDetails = await _scriptsClient.GetScriptAsync("33b6150f4f5df62bfc638f206f3a37254d4a82f15f0c6635a20eb83f");
+		//var latest = await _blocksClient.GetLatestBlockAsync();
+		//var block = await _blocksClient.GetBlockAsync(latest!.Content!.PreviousBlock!);
+		//var epochParams = await _epochsClient.GetLatestParamtersAsync();
+		//var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqan8zfmuzng0yeudewjl385jhu3mt0vwehxgd2cj2lgdsgnqrfzgpfvgptdy2cweq3tl8rkk0d6py2ssy5l52cqpvyq74cdwx");
+		//var latestEpoch = await _epochsClient.GetLatestAsync();
+		//var specificEpoch = await _epochsClient.GetAsync(200);
+		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
+		//var stakeDistributionByPool = await _epochsClient.GetStakeDistributionByPoolAsync(200, "pool1qqfnw2fwajdnam7xsqhhrje5cgd8jcltzfrx655rd23eqlxjfef");
+	}
 
 
 	private async Task TestTxSubmitAsync()

@@ -5,9 +5,9 @@ using CardanoSharp.Wallet.Extensions;
 IHost host = Host.CreateDefaultBuilder(args)
 	.ConfigureServices((hostContext, services) =>
 	{
-		var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
-		var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
-		var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
+        var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
+        var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
+        var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
 		services.AddBlockfrost(authConfig);
 
 		services.AddHostedService<Worker>();
@@ -24,6 +24,7 @@ public class Worker : BackgroundService
 	private readonly IBlocksClient _blocksClient;
 	private readonly IEpochsClient _epochsClient;
 	private readonly IAddressesClient _addressesClient;
+    private readonly IPoolsClient _poolsClient;
 
 	public Worker(
 		INetworkClient networkClient,
@@ -32,7 +33,8 @@ public class Worker : BackgroundService
 		IScriptsClient scriptsClient,
 		IBlocksClient blocksClient,
 		IEpochsClient epochsClient,
-		IAddressesClient addressesClient)
+		IAddressesClient addressesClient, 
+        IPoolsClient poolsClient)
 	{
 		_networkClient = networkClient;
 		_transactionsClient = transactionsClient;
@@ -41,7 +43,8 @@ public class Worker : BackgroundService
 		_blocksClient = blocksClient;
 		_epochsClient = epochsClient;
 		_addressesClient = addressesClient;
-	}
+        _poolsClient = poolsClient;
+    }
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
@@ -66,7 +69,11 @@ public class Worker : BackgroundService
 		//var specificEpoch = await _epochsClient.GetAsync(200);
 		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
 		//var stakeDistributionByPool = await _epochsClient.GetStakeDistributionByPoolAsync(200, "pool1qqfnw2fwajdnam7xsqhhrje5cgd8jcltzfrx655rd23eqlxjfef");
+        //var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
+        //var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
+        //var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
 	}
+
 
 	private async Task TestTxSubmitAsync()
 	{

@@ -10,7 +10,7 @@ public static class BlockfrostExtensions
 		var uri = new Uri(authHeaderConfiguration.BaseUrl);
 
 		// set the auth delegate handler
-		services.AddSingleton(authHeaderConfiguration);
+        services.AddSingleton(authHeaderConfiguration);
 		services.AddTransient<AuthHeaderHandler>();
 
 		// add all the clients
@@ -32,8 +32,11 @@ public static class BlockfrostExtensions
 		services.AddRefitClient<IEpochsClient>()
 			.ConfigureHttpClient(c => c.BaseAddress = uri)
 			.AddHttpMessageHandler<AuthHeaderHandler>();
-		services.AddRefitClient<IAddressesClient>()
-			.ConfigureHttpClient(c => c.BaseAddress = uri)
-			.AddHttpMessageHandler<AuthHeaderHandler>();
+        services.AddRefitClient<IAddressesClient>()
+            .ConfigureHttpClient(c => c.BaseAddress = uri)
+            .AddHttpMessageHandler<AuthHeaderHandler>();
+        services.AddRefitClient<IPoolsClient>()
+            .ConfigureHttpClient(c => c.BaseAddress = uri)
+            .AddHttpMessageHandler<AuthHeaderHandler>();
 	}
 }

@@ -12,7 +12,7 @@ public interface IAccountClient
 	Task<ApiResponse<EpochPoolDelegation[]>> GetAccountHistory(string stake_address, int count = 100, int page = 1, string order = "asc");
 
 	[Get("/accounts/{stake_address}/addresses?count={count}&page={page}&order={order}")]
-	Task<ApiResponse<BasicAddress[]>> GetAccountAssociatedAddresses(string stake_address, int count = 100, int page = 1, string order = "asc");
+	Task<ApiResponse<AddressBasic[]>> GetAccountAssociatedAddresses(string stake_address, int count = 100, int page = 1, string order = "asc");
 
 	[Get("/accounts/{stake_address}/addresses/assets?count={count}&page={page}&order={order}")]
 	Task<ApiResponse<UnitQuantity[]>> GetAccountAssociatedAddressesAssets(string stake_address, int count = 100, int page = 1, string order = "asc");

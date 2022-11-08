@@ -5,9 +5,9 @@ using CardanoSharp.Wallet.Extensions;
 IHost host = Host.CreateDefaultBuilder(args)
 	.ConfigureServices((hostContext, services) =>
 	{
-        var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
-        var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
-        var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
+		var apiKey = hostContext.Configuration["Blockfrost:ApiKey"];
+		var baseUrl = hostContext.Configuration["Blockfrost:BaseUrl"];
+		var authConfig = new AuthHeaderConfiguration(apiKey, baseUrl);
 		services.AddBlockfrost(authConfig);
 
 		services.AddHostedService<Worker>();
@@ -24,7 +24,8 @@ public class Worker : BackgroundService
 	private readonly IBlocksClient _blocksClient;
 	private readonly IEpochsClient _epochsClient;
 	private readonly IAddressesClient _addressesClient;
-    private readonly IPoolsClient _poolsClient;
+	private readonly IPoolsClient _poolsClient;
+	private readonly IAccountClient _accountClient;
 
 	public Worker(
 		INetworkClient networkClient,
@@ -33,8 +34,9 @@ public class Worker : BackgroundService
 		IScriptsClient scriptsClient,
 		IBlocksClient blocksClient,
 		IEpochsClient epochsClient,
-		IAddressesClient addressesClient, 
-        IPoolsClient poolsClient)
+		IAddressesClient addressesClient,
+		IPoolsClient poolsClient,
+		IAccountClient accountClient)
 	{
 		_networkClient = networkClient;
 		_transactionsClient = transactionsClient;
@@ -43,8 +45,9 @@ public class Worker : BackgroundService
 		_blocksClient = blocksClient;
 		_epochsClient = epochsClient;
 		_addressesClient = addressesClient;
-        _poolsClient = poolsClient;
-    }
+		_poolsClient = poolsClient;
+		_accountClient = accountClient;
+	}
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
@@ -69,11 +72,14 @@ public class Worker : BackgroundService
 		//var specificEpoch = await _epochsClient.GetAsync(200);
 		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
 		//var stakeDistributionByPool = await _epochsClient.GetStakeDistributionByPoolAsync(200, "pool1qqfnw2fwajdnam7xsqhhrje5cgd8jcltzfrx655rd23eqlxjfef");
-        //var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
-        //var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
-        //var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
+		//var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
+		//var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
+		//var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
+		//var txhistory = await _accountClient.GetAccountDelegationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
+		//var history = await _accountClient.GetAccountHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
+		//var addresses = await _accountClient.GetAccountAssociatedAddresses("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "asc");
+		//var assets = await _accountClient.GetAccountAssociatedAddressesAssets("stake_test1uqhtd5fclk3ljpa6hfxnuyxacr833epg0jzgwkvyryyu7qg0vxxhc", 100, 1, "asc");
 	}
-
 
 	private async Task TestTxSubmitAsync()
 	{

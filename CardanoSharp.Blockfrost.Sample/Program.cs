@@ -75,7 +75,9 @@ public class Worker : BackgroundService
 		//var delegators = await _poolsClient.GetDelegatorsAsync("2a748e3885f6f73320ad16a8331247b81fe01b8d39f57eec9caa5091", 50, 1);
 		//var pools = await _poolsClient.GetStakepoolsAsync(23, 1);
 		//var poolsExtended = await _poolsClient.GetStakepoolsExtendedAsync(10, 1);
-		//var history = await _accountClient.GetAccountDelegationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
+		//var txhistory = await _accountClient.GetAccountDelegationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
+		//var history = await _accountClient.GetAccountHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
+		//var addresses = await _accountClient.GetAccountAssociatedAddresses("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "asc");
 	}
 
 	private async Task TestTxSubmitAsync()

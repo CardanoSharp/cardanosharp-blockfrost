@@ -59,5 +59,16 @@ namespace CardanoSharp.Blockfrost.Sdk
 		/// <returns>Return the pool information content.</returns>
 		[Get("/pools/{pool_id}")]
 		Task<ApiResponse<StakepoolFullDetail>> GetStakepoolAsync(string pool_id);
+
+		/// <summary>
+		/// Stake pool metadata
+		/// </summary>
+		/// <remarks>
+		/// Stake pool registration metadata.
+		/// </remarks>
+		/// <param name="pool_id">Bech32 pool ID.</param>
+		/// <returns>Return the pool information content.</returns>
+		[Get("/pools/{pool_id}/metadata")]
+		Task<ApiResponse<StakepoolMetadata>> GetStakepoolMetadataAsync(string pool_id);
 	}
 }

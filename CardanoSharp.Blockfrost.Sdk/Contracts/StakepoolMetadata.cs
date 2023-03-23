@@ -15,33 +15,33 @@ namespace CardanoSharp.Blockfrost.Sdk.Contracts
 		[JsonPropertyName("hex")] public string Hex { get; set; }
 
 		/// <summary>
-		/// VRF key hash
+		/// URL to the stake pool metadata
 		/// </summary>
-		[JsonPropertyName("url")] public string Url { get; set; }
+		[JsonPropertyName("url")] public string? Url { get; set; }
 
 		/// <summary>
-		/// Total minted blocks
+		/// Hash of the metadata file
 		/// </summary>
-		[JsonPropertyName("hash")] public string Hash { get; set; }
+		[JsonPropertyName("hash")] public string? Hash { get; set; }
 
 		/// <summary>
-		/// Number of blocks minted in the current epoch
+		/// Ticker of the stake pool
 		/// </summary>
-		[JsonPropertyName("ticker")] public string Ticker { get; set; }
+		[JsonPropertyName("ticker")] public string? Ticker { get; set; }
 
 		/// <summary>
-		/// string
+		/// Name of the stake pool
 		/// </summary>
-		[JsonPropertyName("name")] public string Name { get; set; }
+		[JsonPropertyName("name")] public string? Name { get; set; }
 
 		/// <summary>
-		/// number
+		/// Description of the stake pool
 		/// </summary>
-		[JsonPropertyName("description")] public string Description { get; set; }
+		[JsonPropertyName("description")] public string? Description { get; set; }
 
 		/// <summary>
-		/// number
+		/// Home page of the stake pool
 		/// </summary>
-		[JsonPropertyName("homepage")] public string Homepage { get; set; }
+		[JsonPropertyName("homepage")] public string? Homepage { get; set; }
 	}
 }

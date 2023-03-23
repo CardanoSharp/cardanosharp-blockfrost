@@ -84,7 +84,8 @@ public class Worker : BackgroundService
 		//var metadata = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
 		//var rewards = await _accountClient.GetAccountRewards("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
 		//var registrations = await _accountClient.GetAccountRegistrationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
-		var withdrawals = await _accountClient.GetAccountWithdrawals("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var withdrawals = await _accountClient.GetAccountWithdrawals("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		var mirs = await _accountClient.GetAccountMirHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
 	}
 
 	private async Task TestTxSubmitAsync()

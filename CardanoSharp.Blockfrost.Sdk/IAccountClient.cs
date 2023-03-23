@@ -25,4 +25,7 @@ public interface IAccountClient
 
 	[Get("/accounts/{stake_address}/registrations?count={count}&page={page}&order={order}")]
 	Task<ApiResponse<AccountRegistration[]>> GetAccountRegistrationHistory(string stake_address, int count = 100, int page = 1, string order = "asc");
+
+	[Get("/accounts/{stake_address}/withdrawals?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<AccountWithdrawal[]>> GetAccountWithdrawals(string stake_address, int count = 100, int page = 1, string order = "asc");
 }

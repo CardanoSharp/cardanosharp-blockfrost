@@ -82,8 +82,9 @@ public class Worker : BackgroundService
 		//var details = await _accountClient.GetAccountDetails("stake_test1uqhtd5fclk3ljpa6hfxnuyxacr833epg0jzgwkvyryyu7qg0vxxhc");
 		//var pool = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
 		//var metadata = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
-		var rewards = await _accountClient.GetAccountRewards("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
-		var registrations = await _accountClient.GetAccountRegistrationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var rewards = await _accountClient.GetAccountRewards("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var registrations = await _accountClient.GetAccountRegistrationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		var withdrawals = await _accountClient.GetAccountWithdrawals("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
 	}
 
 	private async Task TestTxSubmitAsync()

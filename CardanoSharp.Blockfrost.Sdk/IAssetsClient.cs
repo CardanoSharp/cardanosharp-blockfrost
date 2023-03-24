@@ -11,6 +11,9 @@ public interface IAssetsClient
 	[Get("/assets/{asset}")]
 	Task<ApiResponse<AssetDetails>> GetAssetAsync(string asset);
 
+	[Get("/assets/{asset}/history?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<AssetHistory[]>> GetAssetHistoryAsync(string asset, int count = 100, int page = 1, string order = "asc");
+
 	[Get("/assets/{asset}/addresses?count={count}&page={page}&order={order}")]
 	Task<ApiResponse<AddressQuantity[]>> GetAssetAddressesAsync(string asset, int count = 100, int page = 1, string order = "asc");
 

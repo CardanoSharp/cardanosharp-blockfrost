@@ -67,7 +67,7 @@ public class Worker : BackgroundService
 		//var latest = await _blocksClient.GetLatestBlockAsync();
 		//var block = await _blocksClient.GetBlockAsync(latest!.Content!.PreviousBlock!);
 		//var epochParams = await _epochsClient.GetLatestParamtersAsync();
-		//var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqan8zfmuzng0yeudewjl385jhu3mt0vwehxgd2cj2lgdsgnqrfzgpfvgptdy2cweq3tl8rkk0d6py2ssy5l52cqpvyq74cdwx");
+		//var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var latestEpoch = await _epochsClient.GetLatestAsync();
 		//var specificEpoch = await _epochsClient.GetAsync(200);
 		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
@@ -79,9 +79,33 @@ public class Worker : BackgroundService
 		//var history = await _accountClient.GetAccountHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "desc");
 		//var addresses = await _accountClient.GetAccountAssociatedAddresses("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0", 100, 1, "asc");
 		//var assets = await _accountClient.GetAccountAssociatedAddressesAssets("stake_test1uqhtd5fclk3ljpa6hfxnuyxacr833epg0jzgwkvyryyu7qg0vxxhc", 100, 1, "asc");
-		var details = await _accountClient.GetAccountDetails("stake_test1uqhtd5fclk3ljpa6hfxnuyxacr833epg0jzgwkvyryyu7qg0vxxhc");
+		//var details = await _accountClient.GetAccountDetails("stake_test1uqhtd5fclk3ljpa6hfxnuyxacr833epg0jzgwkvyryyu7qg0vxxhc");
 		//var pool = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
-		var metadata = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
+		//var metadata = await _poolsClient.GetStakepoolAsync("pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
+		//var rewards = await _accountClient.GetAccountRewards("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var registrations = await _accountClient.GetAccountRegistrationHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var withdrawals = await _accountClient.GetAccountWithdrawals("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var mirs = await _accountClient.GetAccountMirHistory("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var detailedInfo = await _accountClient.GetAccountAddressesDetailedInfo("stake_test1uqyt95qs2qyhr0xc0gg4vmzt24yyw27kta682a4duhd3eaql492l0");
+		//var addressInfo = await _addressesClient.GetAddressInfoAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
+		//var addressInfoExtended = await _addressesClient.GetAddressInfoExtendedAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
+		//var addressTotals = await _addressesClient.GetAddressTotalsAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
+		//var addressUtxosAsset = await _addressesClient.GetAddressUtxosOfAssetAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r", "ba5de04f94409bb7e4028aa706b3527aaa25c29255e9c34c97867b81744d6f6e6574");
+		//var assetHistory = await _assetsClient.GetAssetHistoryAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		//var txs = await _blocksClient.GetLatestBlockTransactionsAsync();
+		//var latest = await _blocksClient.GetLatestBlockAsync();
+		//var blocks = await _blocksClient.GetPreviousBlocksAsync(latest!.Content!.PreviousBlock!);
+		//var blocks = await _blocksClient.GetNextBlocksAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		//var block = await _blocksClient.GetBlockInSlotAsync(23998644);
+		//var block = await _blocksClient.GetBlockInEpochSlotAsync(59, 152244);
+		//var txs = await _blocksClient.GetBlockTransactionsAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		//var txs = await _blocksClient.GetBlockAddressesAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		//var addrTxs = await _blocksClient.GetBlockAddressesAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		//var nextEpochs = await _epochsClient.GetNextAsync(20);
+		//var prevEpochs = await _epochsClient.GetPreviousAsync(20);
+		//var blocks = await _epochsClient.GetBlockDistributionAsync(20);
+		//var blocks = await _epochsClient.GetBlockDistributionByPoolAsync(30, "pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
+		var paramters = await _epochsClient.GetProtocolParamtersAsync(30);
 	}
 
 	private async Task TestTxSubmitAsync()

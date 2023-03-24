@@ -21,5 +21,8 @@ public interface IBlocksClient
 	Task<ApiResponse<Block[]>> GetPreviousBlocksAsync(string hash_or_number, int count = 100, int page = 1);
 
 	[Get("/blocks/slot/{slot_number}")]
-	Task<ApiResponse<Block>> GetBlockForSlotNumberAsync(uint slot_number);
+	Task<ApiResponse<Block>> GetBlockInSlotAsync(uint slot_number);
+
+	[Get("/blocks/epoch/{epoch_number}/slot/{slot_number}")]
+	Task<ApiResponse<Block>> GetBlockInEpochSlotAsync(uint epoch_number, uint slot_number);
 }

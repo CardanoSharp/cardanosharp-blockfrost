@@ -100,7 +100,9 @@ public class Worker : BackgroundService
 		//var block = await _blocksClient.GetBlockInEpochSlotAsync(59, 152244);
 		//var txs = await _blocksClient.GetBlockTransactionsAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
 		//var txs = await _blocksClient.GetBlockAddressesAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
-		var addrTxs = await _blocksClient.GetBlockAddressesAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		//var addrTxs = await _blocksClient.GetBlockAddressesAsync("edb1ab8200c5f79793414d5f597d007e5bb07749a88d574582d12f1c4918aec8");
+		var nextEpochs = await _epochsClient.GetNextAsync(20);
+		var prevEpochs = await _epochsClient.GetPreviousAsync(20);
 	}
 
 	private async Task TestTxSubmitAsync()

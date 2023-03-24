@@ -91,7 +91,8 @@ public class Worker : BackgroundService
 		//var addressInfoExtended = await _addressesClient.GetAddressInfoExtendedAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var addressTotals = await _addressesClient.GetAddressTotalsAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var addressUtxosAsset = await _addressesClient.GetAddressUtxosOfAssetAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r", "ba5de04f94409bb7e4028aa706b3527aaa25c29255e9c34c97867b81744d6f6e6574");
-		var assetHistory = await _assetsClient.GetAssetHistoryAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		//var assetHistory = await _assetsClient.GetAssetHistoryAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
+		var txs = await _blocksClient.GetLatestBlockTransactionsAsync();
 	}
 
 	private async Task TestTxSubmitAsync()

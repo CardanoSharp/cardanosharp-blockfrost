@@ -16,4 +16,7 @@ public interface IAddressesClient
 
 	[Get("/addresses/{address}/extended")]
 	Task<ApiResponse<AddressExtended>> GetAddressInfoExtendedAsync(string address);
+
+	[Get("/addresses/{address}/total")]
+	Task<ApiResponse<AddressTotals>> GetAddressTotalsAsync(string address);
 }

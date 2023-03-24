@@ -25,4 +25,7 @@ public interface IBlocksClient
 
 	[Get("/blocks/epoch/{epoch_number}/slot/{slot_number}")]
 	Task<ApiResponse<Block>> GetBlockInEpochSlotAsync(uint epoch_number, uint slot_number);
+
+	[Get("/blocks/{hash_or_number}/txs?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<string[]>> GetBlockTransactionsAsync(string hash_or_number, int count = 100, int page = 1, string order = "asc");
 }

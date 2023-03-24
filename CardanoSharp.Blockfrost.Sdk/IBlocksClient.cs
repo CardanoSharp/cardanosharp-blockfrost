@@ -19,4 +19,7 @@ public interface IBlocksClient
 
 	[Get("/blocks/{hash_or_number}/previous?count={count}&page={page}")]
 	Task<ApiResponse<Block[]>> GetPreviousBlocksAsync(string hash_or_number, int count = 100, int page = 1);
+
+	[Get("/blocks/slot/{slot_number}")]
+	Task<ApiResponse<Block>> GetBlockForSlotNumberAsync(uint slot_number);
 }

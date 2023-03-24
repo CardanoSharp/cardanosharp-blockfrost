@@ -25,4 +25,7 @@ public interface IEpochsClient
 
 	[Get("/epochs/{number}/stakes/{pool_id}?count={count}&page={page}")]
 	Task<ApiResponse<StakeAddressDelegation[]>> GetStakeDistributionByPoolAsync(uint number, string pool_id, int count = 100, int page = 1);
+
+	[Get("/epochs/{number}/blocks?count={count}&page={page}&order={order}")]
+	Task<ApiResponse<string[]>> GetBlockDistributionAsync(uint number, int count = 100, int page = 1, string order = "asc");
 }

@@ -67,7 +67,7 @@ public class Worker : BackgroundService
 		//var latest = await _blocksClient.GetLatestBlockAsync();
 		//var block = await _blocksClient.GetBlockAsync(latest!.Content!.PreviousBlock!);
 		//var epochParams = await _epochsClient.GetLatestParamtersAsync();
-		var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
+		//var addressUtxos = await _addressesClient.GetAddressUtxosAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var latestEpoch = await _epochsClient.GetLatestAsync();
 		//var specificEpoch = await _epochsClient.GetAsync(200);
 		//var stakeDistribution = await _epochsClient.GetStakeDistributionAsync(200);
@@ -90,7 +90,8 @@ public class Worker : BackgroundService
 		//var addressInfo = await _addressesClient.GetAddressInfoAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var addressInfoExtended = await _addressesClient.GetAddressInfoExtendedAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
 		//var addressTotals = await _addressesClient.GetAddressTotalsAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r");
-		var addressUtxosAsset = await _addressesClient.GetAddressUtxosOfAssetAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r", "ba5de04f94409bb7e4028aa706b3527aaa25c29255e9c34c97867b81744d6f6e6574");
+		//var addressUtxosAsset = await _addressesClient.GetAddressUtxosOfAssetAsync("addr_test1qqhr9p4hvahjg8pm777vefc054fm8dda8x4chu9rygc5wjpwkmgn3ldrlyrm4wjd8cgdmsx0rrjzslyysavcgxgfeuqsrtq89r", "ba5de04f94409bb7e4028aa706b3527aaa25c29255e9c34c97867b81744d6f6e6574");
+		var assetHistory = await _assetsClient.GetAssetHistoryAsync("698a6ea0ca99f315034072af31eaac6ec11fe8558d3f48e9775aab9d7444524950");
 	}
 
 	private async Task TestTxSubmitAsync()

@@ -4,6 +4,8 @@ namespace CardanoSharp.Blockfrost.Sdk.Contracts;
 
 public class AddressUtxo
 {
+	[JsonPropertyName("address")] public string Address { get; set; }
+
 	[JsonPropertyName("tx_hash")] public string TxHash { get; set; }
 
 	[JsonPropertyName("output_index")] public ushort OutputIndex { get; set; }

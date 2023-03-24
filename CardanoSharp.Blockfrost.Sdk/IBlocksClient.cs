@@ -13,4 +13,10 @@ public interface IBlocksClient
 
 	[Get("/blocks/{hash_or_number}")]
 	Task<ApiResponse<Block>> GetBlockAsync(string hash_or_number);
+
+	[Get("/blocks/{hash_or_number}/next?count={count}&page={page}")]
+	Task<ApiResponse<Block[]>> GetNextBlocksAsync(string hash_or_number, int count = 100, int page = 1);
+
+	[Get("/blocks/{hash_or_number}/previous?count={count}&page={page}")]
+	Task<ApiResponse<Block[]>> GetPreviousBlocksAsync(string hash_or_number, int count = 100, int page = 1);
 }

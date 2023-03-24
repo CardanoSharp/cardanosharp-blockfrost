@@ -104,7 +104,8 @@ public class Worker : BackgroundService
 		//var nextEpochs = await _epochsClient.GetNextAsync(20);
 		//var prevEpochs = await _epochsClient.GetPreviousAsync(20);
 		//var blocks = await _epochsClient.GetBlockDistributionAsync(20);
-		var blocks = await _epochsClient.GetBlockDistributionByPoolAsync(30, "pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
+		//var blocks = await _epochsClient.GetBlockDistributionByPoolAsync(30, "pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re");
+		var paramters = await _epochsClient.GetProtocolParamtersAsync(30);
 	}
 
 	private async Task TestTxSubmitAsync()

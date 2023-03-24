@@ -8,6 +8,9 @@ public interface IEpochsClient
 	[Get("/epochs/latest/parameters")]
 	Task<ApiResponse<EpochParameters>> GetLatestParamtersAsync();
 
+	[Get("/epochs/{number}/parameters")]
+	Task<ApiResponse<EpochParameters>> GetProtocolParamtersAsync(uint number);
+
 	[Get("/epochs/latest")]
 	Task<ApiResponse<Epoch>> GetLatestAsync();
 

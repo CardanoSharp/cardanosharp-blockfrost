@@ -2,11 +2,11 @@
 
 namespace CardanoSharp.Blockfrost.Sdk.Contracts;
 
-public class AddressInfo
+public class AddressExtended
 {
 	[JsonPropertyName("address")] public string Address { get; set; }
 
-	[JsonPropertyName("amount")] public Amount[] Amount { get; set; }
+	[JsonPropertyName("amount")] public AmountExtended[] Amount { get; set; }
 
 	[JsonPropertyName("stake_address")] public string StakeAddress { get; set; }
 

@@ -28,4 +28,7 @@ public interface IBlocksClient
 
 	[Get("/blocks/{hash_or_number}/txs?count={count}&page={page}&order={order}")]
 	Task<ApiResponse<string[]>> GetBlockTransactionsAsync(string hash_or_number, int count = 100, int page = 1, string order = "asc");
+
+	[Get("/blocks/{hash_or_number}/addresses?count={count}&page={page}")]
+	Task<ApiResponse<AddressTxHashes[]>> GetBlockAddressesAsync(string hash_or_number, int count = 100, int page = 1);
 }

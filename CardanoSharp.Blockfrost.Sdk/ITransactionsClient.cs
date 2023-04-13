@@ -8,8 +8,8 @@ public interface ITransactionsClient
 	[Get("/txs/{hash}")]
 	Task<ApiResponse<Transaction>> GetTransactionAsync(string hash);
 
-	[Headers("Content-Type: application/cbor; charset=UTF-8")]
-	[Post("/tx/submit")]
+    [Headers("Content-Type: application/cbor")]
+    [Post("/tx/submit")]
 	Task<ApiResponse<string>> PostSubmitTransactionAsync([Body] Stream content);
 
     [Get("/txs/{hash}/utxos")]
